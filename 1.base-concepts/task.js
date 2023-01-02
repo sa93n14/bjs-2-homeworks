@@ -34,15 +34,13 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 
   if (isNaN(percent) || isNaN(contribution) || isNaN(amount) || isNaN(countMonths)) {
     console.log("Введены некорректные данные")
+    return false;
   }
 
-     P = percent / 100 / 12;
+     P = (percent / 100) / 12;
      S = amount - contribution;
-     monthlyPayment = S * (P + (P / (((1 + P) ** countMonths) - 1)));
-     totalAmount = monthlyPayment * countMonths;
-     totalAmount.toFixed(3);
-     Number(totalAmount);
-  
-
+     monthlyPayment = S * (P + (P / ((Math.pow((1 + P), countMonths)) - 1)));
+     totalAmount = parseFloat((monthlyPayment * countMonths).toFixed(2));
+    
   return totalAmount;
 }
