@@ -42,3 +42,19 @@ Student.prototype.exclude = function (reason) {
 
 // "marks" in Student === true
 // Student.hasOwnProperty("marks") === false
+
+//  Если пользователь отчислен, то у него не будет массива оценок, а, значит, и добавление будет невозможным.
+ 
+//  Student.prototype.addMarks = function (...marks) {
+//   if ("marks" in Student === true) {
+//     this.marks.push(...marks);
+//   }
+// }
+	
+//  Если свойства marks не существует или оно пустое, сразу возвращайте ноль.
+ 
+//  if ( "marks" in Student === false || this.marks.length === 0) {
+//     return 0;
+		
+// 	Хотел задать вопрос, почему проверки через "marks" in Student === true и  "marks" in Student === false || this.marks.length === 0 не работают,
+//    а работают только на проверку undefined, так же пробовал проверку через hasOwnProperty, тоже не работает, в чем разница между 'hasOwnProperty' и 'in' я понимаю
