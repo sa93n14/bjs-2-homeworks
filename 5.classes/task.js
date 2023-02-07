@@ -77,17 +77,19 @@ class Library {
     }
 
     findBookBy(type, value) {
-        if (this.books.find((book) => book[type] === value) != undefined) {
-            return book;
+        let thisBook = this.books.find((book) => book[type] === value);
+        if (thisBook != undefined) {
+            return thisBook;
         } else {
             return null;
         }      
     }
-// Эти два метода не работают, не понимаю почему ????????????????????????????
+
     giveBookByName(bookName) {
-        let thisBook = this.book.findIndex((book) => book.name === bookName);
-            if (thisBook > -1) {
-                this.books.splice(thisBook, 1);
+        let indexBook = this.books.findIndex((book) => book.name === bookName);
+        let thisBook = this.books.find((book) => book.name === bookName)
+            if (indexBook > -1) {
+                this.books.splice(indexBook, 1);
                 return thisBook;
             } else {
                 return null;
