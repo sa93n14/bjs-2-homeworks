@@ -39,8 +39,13 @@ function getTriangle(a, b, c) {
     try {
         return new Triangle(a, b, c);
     } catch (error) {
-        new Error(perimeter, area);
+        return {
+            get perimeter() {
+                return "Ошибка! Треугольник не существует"
+            },
+            get area() {
+                return "Ошибка! Треугольник не существует"
+            }
+        }
     }
-    // В случае перехвата исключения возвращайте объект с двумя геттерами area и perimeter, которые возвращают строку: «Ошибка! Треугольник не существует».
-    // не понимаю что надо сделать 
 }

@@ -152,18 +152,17 @@ class Student {
 
     getAverage() {
         let summSubject = Object.keys(this.marks);
-        let Summ;
-       
+        let Summ = 0;
+        
+        //   Вариант 2
         // for (let i = 0; i < summSubject.length; i++) {
         //     Summ += this.getAverageBySubject(summSubject[i]); 
         // }
-
         // return Summ / summSubject.length;
-        // Не работает через цикл почему-то
+        
        
         Summ = summSubject.reduce((acc, item, index, summSubject) => {
             acc += this.getAverageBySubject(item);
-            // acc += getAverageBySubject(item); Почему надо использовать при вызове метода ключевое слово "This"
             if (index === summSubject.length - 1) {
                 return acc / summSubject.length;
             } 
